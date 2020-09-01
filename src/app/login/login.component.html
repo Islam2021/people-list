@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid || isLoading">
-                    <img *ngIf="isLoading" width="30" src="../../assets/img/loading.gif">
+                    <div *ngIf="isLoading" class="load load1"></div>
                     Login
                 </button>
             </form>

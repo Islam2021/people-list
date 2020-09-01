@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid || password.value != repassword.value || isLoading">
-                    <img *ngIf="isLoading" width="30" src="../../assets/img/loading.gif">
+                    <div *ngIf="isLoading" class="load load1"></div>
                     Register
                 </button>
             </form>
