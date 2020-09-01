@@ -1,0 +1,53 @@
+<navbar>
+</navbar>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <h1 class="display-4">Hello, Update User!</h1>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-1">
+            <form [formGroup]="updateUserForm" (ngSubmit)="updateUser()">
+                <div class="form-group">
+                    <label for="">First Name*</label>
+                    <input type="text" class="form-control" id="" formControlName="firstname" aria-describedby="emailHelp">
+                    <div class="erros" *ngIf="firstname.errors && firstname.touched">
+                        <small *ngIf="firstname.errors.required" class="form-text text-danger">Firstname Is Required.</small>
+                        <small *ngIf="firstname.errors.minlength" class="form-text text-danger">Firstname Must be min Length (2).</small>
+                        <small *ngIf="firstname.errors.pattern" class="form-text text-danger">Firstname Must be chracter.</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Last Name*</label>
+                    <input type="text" class="form-control" formControlName="lastname" id="" aria-describedby="">
+                    <div class="erros" *ngIf="lastname.errors && lastname.touched">
+                        <small *ngIf="lastname.errors.required" class="form-text text-danger">Lastname Is Required.</small>
+                        <small *ngIf="lastname.errors.minlength" class="form-text text-danger">Lastname Must be min Length (2).</small>
+                        <small *ngIf="lastname.errors.pattern" class="form-text text-danger">Lastname Must be chracter.</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Phone*</label>
+                    <input type="text" class="form-control" id="" formControlName="phone">
+                    <div class="erros" *ngIf="phone.errors && phone.touched">
+                        <small *ngIf="phone.errors.required" class="form-text text-danger">phone Is Required.</small>
+                        <small *ngIf="phone.errors.minlength" class="form-text text-danger">phone Must be min Length (11).</small>
+                        <small *ngIf="phone.errors.maxlength" class="form-text text-danger">phone Must be Max Length (11).</small>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2" [disabled]="updateUserForm.invalid || isLoading">
+                    <img *ngIf="isLoading" width="30" src="../../assets/img/loading.gif">
+                    Update User
+                </button>
+                <button type="submit" class="btn btn-info" [routerLink]="['/people-list']">Back</button>
+            </form>
+        </div>
+    </div>
+</div>

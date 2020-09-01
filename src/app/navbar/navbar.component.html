@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand">Make#Code4You</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" *ngIf="isLoggedIn">
+                    <a class="nav-link" [routerLink]="['/people-list']">People List</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-primary my-2 my-sm-0 mr-2" *ngIf="!isLoggedIn" type="button" routerLink="">Login</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0" *ngIf="!isLoggedIn" type="button" [routerLink]="['register']">Register</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0" *ngIf="isLoggedIn" type="submit" (click)="logOut()">Log Out</button>
+            </form>
+        </div>
+    </div>
+</nav>

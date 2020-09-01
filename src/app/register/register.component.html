@@ -1,0 +1,90 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <app-seletion-loader *ngIf="!loaded" Cwidth="100" Cheight="15"></app-seletion-loader>
+                <h1 *ngIf="loaded" class="display-4">Hello, Register!</h1>
+                <app-seletion-loader *ngIf="!loaded" Cwidth="900" Cheight="15"></app-seletion-loader>
+                <p *ngIf="loaded" class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<navbar>
+</navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-1">
+            <form [formGroup]="registerForm" (ngSubmit)="registerForms(registerForm)">
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <app-seletion-loader *ngIf="!loaded" Cwidth="100" Cheight="15"></app-seletion-loader>
+                        <label *ngIf="loaded" for="">First Name*</label>
+                        <input type="text" class="form-control" id="" formControlName="firstname">
+                        <div class="erros" *ngIf="firstname.errors && firstname.touched">
+                            <small *ngIf="firstname.errors.required" class="form-text text-danger">Firstname Is Required.</small>
+                            <small *ngIf="firstname.errors.minlength" class="form-text text-danger">Firstname Must be min Length (2).</small>
+                            <small *ngIf="firstname.errors.pattern" class="form-text text-danger">Firstname Must be chracter.</small>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <app-seletion-loader *ngIf="!loaded" Cwidth="100" Cheight="15"></app-seletion-loader>
+                        <label *ngIf="loaded" for="">Secand Name*</label>
+                        <input type="text" class="form-control" id="" formControlName="lastname">
+                        <div class="erros" *ngIf="lastname.errors && lastname.touched">
+                            <small *ngIf="lastname.errors.required" class="form-text text-danger">Lastname Is Required.</small>
+                            <small *ngIf="lastname.errors.minlength" class="form-text text-danger">Lastname Must be min Length (2).</small>
+                            <small *ngIf="lastname.errors.pattern" class="form-text text-danger">Lastname Must be chracter.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <app-seletion-loader *ngIf="!loaded" Cwidth="100" Cheight="15"></app-seletion-loader>
+                    <label *ngIf="loaded" for="">Phone*</label>
+                    <input type="text" class="form-control" id="" formControlName="phone">
+                    <div class="erros" *ngIf="phone.errors && phone.touched">
+                        <small *ngIf="phone.errors.required" class="form-text text-danger">phone Is Required.</small>
+                        <small *ngIf="phone.errors.minlength" class="form-text text-danger">phone Must be min Length (13).</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <app-seletion-loader *ngIf="!loaded" Cwidth="100" Cheight="15"></app-seletion-loader>
+                    <label *ngIf="loaded" for="exampleInputEmail1">Email address*</label>
+                    <input type="email" class="form-control" id="" formControlName="email">
+                    <div class="erros" *ngIf="email.errors && email.touched">
+                        <small *ngIf="email.errors.required" class="form-text text-danger">email Is Required.</small>
+                        <small *ngIf="email.errors.email" class="form-text text-danger">email Must be email.</small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <app-seletion-loader *ngIf="!loaded" Cwidth="100" Cheight="15"></app-seletion-loader>
+                        <label *ngIf="loaded" for="">Password*</label>
+                        <input type="password" class="form-control" id="" formControlName="password">
+                        <div class="erros" *ngIf="password.errors && password.touched">
+                            <small *ngIf="password.errors.required" class="form-text text-danger">password Is Required.</small>
+                            <small *ngIf="password.errors.minlength" class="form-text text-danger">password Must be min length (6).</small>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <app-seletion-loader *ngIf="!loaded" Cwidth="100" Cheight="15"></app-seletion-loader>
+                        <label *ngIf="loaded" for="">Confirm Password*</label>
+                        <input type="password" class="form-control" id="" formControlName="repassword">
+                        <div class="erros" *ngIf="repassword.errors && repassword.touched">
+                            <small *ngIf="repassword.errors.required" class="form-text text-danger">repassword Is Required.</small>
+                            <small *ngIf="repassword.errors.minlength" class="form-text text-danger">repassword Must be min length (6).</small>
+                        </div>
+                        <div class="form-text text-danger" *ngIf="repassword.valid && password.value != repassword.value">
+                            Password not matched!
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid || password.value != repassword.value || isLoading">
+                    <img *ngIf="isLoading" width="30" src="../../assets/img/loading.gif">
+                    Register
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

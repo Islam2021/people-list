@@ -1,0 +1,68 @@
+<navbar>
+</navbar>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <h1 class="display-4">Hello, People List!</h1>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-1">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-4">
+                    <h4 class="d-inline"> People List </h4>
+                </div>
+                <div class="col-md-4 text-center">
+                    <input class="form-control" [(ngModel)]="firstname" (keyup)="userFilter()" type="text" placeholder="Search by name...">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary float-right" [routerLink]="['/add-user']"> Add New People </button>
+                </div>
+
+            </div>
+
+            <table class="table mt-4">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+
+                <tr *ngIf="spinner">
+                    <td colspan="5" class="text-center">
+                        <app-loader></app-loader>
+                    </td>
+                </tr>
+
+                <tr *ngIf="peopleList?.length == 0">
+                    <td class="mt-4 text-center font-italic" colspan="5">
+                        <div class="alert alert-warning">No People Found!</div>
+                    </td>
+                </tr>
+
+                <tbody>
+                    <tr *ngFor="let person of peopleList; index as index">
+                        <th scope="row">{{index}}</th>
+                        <td>{{person.firstname}}</td>
+                        <td>{{person.email}}</td>
+                        <td>{{person.phone}}</td>
+                        <td>
+                            <button class="btn btn-primary mr-2" [routerLink]="['/show-user', person._id]"> Details </button>
+                            <button class="btn btn-info mr-2" [routerLink]="['/update-user', person._id]"> Update </button>
+                            <button class="btn btn-danger" (click)="delete(person)"> Delete </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

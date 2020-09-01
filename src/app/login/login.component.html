@@ -1,0 +1,48 @@
+<navbar>
+</navbar>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <app-seletion-loader *ngIf="!loaded" Cwidth="200" Cheight="15"></app-seletion-loader>
+                <h1 *ngIf="loaded" class="display-4">Hello, Login!</h1>
+                <app-seletion-loader *ngIf="!loaded" Cwidth="900" Cheight="15"></app-seletion-loader>
+                <p *ngIf="loaded" class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <hr>
+                <app-seletion-loader *ngIf="!loaded" Cwidth="900" Cheight="17"></app-seletion-loader>
+                <p *ngIf="loaded" class="lead">Please fill your email and password Here ( admin@admin.com / 000000 )</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-1">
+            <form [formGroup]="loginForm" (ngSubmit)="loginForms()">
+                <div class="form-group">
+                    <app-seletion-loader *ngIf="!loaded" Cwidth="100" Cheight="15"></app-seletion-loader>
+                    <label *ngIf="loaded" for="">Email address*</label>
+                    <input type="email" class="form-control" id="" formControlName="email" aria-describedby="">
+                    <div class="erros" *ngIf="email.errors && email.touched">
+                        <small *ngIf="email.errors.required" class="form-text text-danger">email Is Required.</small>
+                        <small *ngIf="email.errors.email" class="form-text text-danger">email Must be email.</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <app-seletion-loader *ngIf="!loaded" Cwidth="80" Cheight="15"></app-seletion-loader>
+                    <label *ngIf="loaded" for="">Password*</label>
+                    <input type="password" formControlName="password" class="form-control" id="">
+                    <div class="erros" *ngIf="password.errors && password.touched">
+                        <small *ngIf="password.errors.required" class="form-text text-danger">password Is Required.</small>
+                        <small *ngIf="password.errors.minlength" class="form-text text-danger">password Must be min length (6).</small>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid || isLoading">
+                    <img *ngIf="isLoading" width="30" src="../../assets/img/loading.gif">
+                    Login
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

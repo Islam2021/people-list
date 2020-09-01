@@ -1,0 +1,46 @@
+<navbar>
+</navbar>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <h1 class="display-4">Hello, Show People List!</h1>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-1">
+            <div class="flex">
+                <h4 class="d-inline"> Show People List! </h4>
+                <button type="submit" class="btn btn-primary float-right" [routerLink]="['/people-list']"> Back To Lists </button>
+
+            </div>
+
+            <table class="table mt-4">
+                <thead>
+                    <tr>
+                        <th scope="col">UserID</th>
+                        <th scope="col">Firstname</th>
+                        <th scope="col">Lastname</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">email</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row">{{this.user?._id}}</th>
+                        <th scope="row">{{this.user?.firstname}}</th>
+                        <th scope="row">{{this.user?.lastname}}</th>
+                        <th scope="row">{{this.user?.phone}}</th>
+                        <th scope="row">{{this.user?.email}}</th>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

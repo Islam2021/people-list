@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+    --main-bg-color: #f3f2f2;
+    --loader-bg-color: rgb(235, 235, 235);
+    --main-color: rgba(0, 0, 0, .5);
+}
+
+@import '~ngx-toastr/toastr';
+.erros small {
+    color: red;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--main-color);
+    font-weight: 700;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+}
+
+.jumbotron {
+    background-color: var(--main-bg-color) !important;
+}
+
+.loader {
+    position: relative;
+    background-color: var(--loader-bg-color);
+    width: 200px;
+    height: 20px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.loader::after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
+    animation: loading 1s infinite;
+}
+
+@keyframes loading {
+    100% {
+        transform: translateX(100%);
+    }
+}
