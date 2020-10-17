@@ -14,11 +14,11 @@ export class AddUserComponent implements OnInit {
   addUserForm: FormGroup;
   isLoading: boolean = false;
   constructor(
-    private fb: FormBuilder, 
-    private userServ: UserService, 
-    private router: Router, 
+    private fb: FormBuilder,
+    private userServ: UserService,
+    private router: Router,
     private toastr: ToastrService
-    ) { 
+    ) {
 
     let formControls = {
       firstname: new FormControl('', [
@@ -57,7 +57,7 @@ export class AddUserComponent implements OnInit {
       console.log(res);
       this.toastr.success(res.message);
       this.router.navigate(['/people-list'])
-    }, error => {      
+    }, error => {
       this.toastr.error(error.message)
       this.isLoading = false
     })

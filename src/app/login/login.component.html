@@ -10,7 +10,7 @@
                 <p *ngIf="loaded" class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
                 <hr>
                 <app-seletion-loader *ngIf="!loaded" Cwidth="900" Cheight="17"></app-seletion-loader>
-                <p *ngIf="loaded" class="lead">Please fill your email and password Here ( admin@admin.com / 000000 )</p>
+                <p *ngIf="loaded" class="lead">Please fill your email and password Here ( admin@admin.com / 000000 ) Or Register Now</p>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 offset-1">
-            <form [formGroup]="loginForm" (ngSubmit)="loginForms()">
+            <form class="mb-4" [formGroup]="loginForm" (ngSubmit)="loginForms()">
                 <div class="form-group">
                     <app-seletion-loader *ngIf="!loaded" Cwidth="100" Cheight="15"></app-seletion-loader>
                     <label *ngIf="loaded" for="">Email address*</label>

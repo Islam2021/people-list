@@ -13,7 +13,7 @@
 
 .navbar-light .navbar-nav .nav-link {
     color: var(--main-color);
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .btn:focus {
@@ -22,6 +22,7 @@
 
 .jumbotron {
     background-color: var(--main-bg-color) !important;
+    padding: 2rem !important;
 }
 
 .loader {

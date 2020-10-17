@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-seletion-loader',
-  template: `   
+  template: `
       <div [ngStyle]="getMyStyle()" class="skelt-load loader"></div>
   `,
   styleUrls: ['./seletion-loader-module.component.scss']
@@ -18,7 +18,7 @@ export class SeletionLoaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  getMyStyle() {  
+  getMyStyle() {
     const myStyle = {
       'width.px': this.Cwidth ? this.Cwidth: '',
       'height.px': this.Cheight ? this.Cheight: '',

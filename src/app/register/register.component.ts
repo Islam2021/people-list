@@ -60,7 +60,7 @@ export class RegisterComponent implements OnInit {
     setInterval(() => {
       this.loaded = true
     }, 1000)
-    
+
     let loggedIn = this.userServ.LoggedIn();
 
     if(loggedIn) {
@@ -72,7 +72,7 @@ export class RegisterComponent implements OnInit {
     this.isLoading = true;
     this.userServ.registerAdmin(user.value).subscribe(res => {
       this.toster.success(res.message);
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
     }, error => {
       this.toster.error(error.message);
       this.isLoading = false;

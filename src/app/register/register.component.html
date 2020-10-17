@@ -17,7 +17,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 offset-1">
-            <form [formGroup]="registerForm" (ngSubmit)="registerForms(registerForm)">
+            <form class="mb-4" [formGroup]="registerForm" (ngSubmit)="registerForms(registerForm)">
                 <div class="form-row">
                     <div class="form-group col-6">
                         <app-seletion-loader *ngIf="!loaded" Cwidth="100" Cheight="15"></app-seletion-loader>
